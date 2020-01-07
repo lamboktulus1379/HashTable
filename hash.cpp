@@ -82,7 +82,6 @@ void hash::PrintItemInIndex(int index)
 			std::cout << Ptr->drink << std::endl;
 			std::cout << "==============================\n";
 			Ptr = Ptr->next;
-
 		}
 	}
 }
@@ -113,16 +112,15 @@ void hash::RemoveItem(std::string name)
 		std::cout << name << " was not found in the Hash Table\n";
 	}
 
-	// Case 1 = only 1 item cotains in bucket and that item has matching name
+	// Case 1 = only 1 item contains in bucket and that item has matching name
 	else if (HashTable[index]->name == name && HashTable[index]->next == NULL) {
 		HashTable[index]->name = "empty";
 		HashTable[index]->drink = "empty";
 
 		std::cout << name << " was removed from the Hash Table\n";
-
 	}
 	// Case 2 - Match is located in he first item in the bucket but there are more items in the bucket
-	else if (HashTable[index]->name == "empty")
+	else if (HashTable[index]->name == name)
 	{
 		delPtr = HashTable[index];
 		HashTable[index] = HashTable[index]->next;
